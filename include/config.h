@@ -9,8 +9,8 @@
 namespace cfg {
 
 // --- Wi-Fi / portale -------------------------------------------------------
-constexpr char kApName[] = "SkyRadar-Setup";
-constexpr char kHostname[] = "skyradar";  // http://skyradar.local
+constexpr char kApName[] = "SopraIlCielo-Setup";
+constexpr char kHostname[] = "sopra-il-cielo";  // http://sopra-il-cielo.local
 constexpr uint16_t kPortalTimeoutS = 300;
 
 // --- Ora locale (POSIX TZ). Italia: CET/CEST --------------------------------

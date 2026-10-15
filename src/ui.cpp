@@ -269,7 +269,8 @@ void drawSidePanel(const Frame& f) {
   const int lx = kPanelX + 5;
   char buf[40];
 
-  text("SKYRADAR", cx, 4, 2, kCyan, TC_DATUM);
+  text("SOPRA IL", cx, 3, 1, kCyan, TC_DATUM);
+  text("CIELO", cx, 12, 1, kCyan, TC_DATUM);
 
   struct tm tm;
   if (getLocalTime(&tm, 0)) {
@@ -577,7 +578,7 @@ void setBacklight(bool on) {
 void message(const char* title, const char* l1, const char* l2, const char* l3) {
   g->fillScreen(kBlack);
   g->fillRect(0, 0, kW, 26, kHeader);
-  text("SKYRADAR", kW / 2, 13, 2, kCyan, MC_DATUM);
+  text("SOPRA IL CIELO", kW / 2, 13, 2, kCyan, MC_DATUM);
   text(title, kW / 2, 70, 4, kWhite, MC_DATUM);
   const char* lines[] = {l1, l2, l3};
   for (int i = 0; i < 3; ++i) {

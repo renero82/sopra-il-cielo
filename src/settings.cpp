@@ -9,7 +9,7 @@
 namespace settings {
 
 namespace {
-constexpr char kNs[] = "skyradar";
+constexpr char kNs[] = "sopracielo";
 }
 
 void load(Settings& out) {

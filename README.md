@@ -1,10 +1,10 @@
-# SkyRadar
+# Sopra il cielo
 
 Un piccolo "Flightradar" da scrivania per ESP32: mostra in tempo reale gli aerei che ti passano sopra la testa, su un display da 2,8". Trova la tua posizione dall'indirizzo IP, oppure usa coordinate che inserisci tu.
 
 ```
 ┌──────────────────────────────┬─────────┐
-│            N                 │SKYRADAR │
+│            N                 │SOPRA IL │
 │      ·  ·  ·  ·  ·           │  21:42  │
 │   ·    ▲ RYR57BR      ·      │ Milano  │
 │  ·       \     ·  ·    ·     │ da IP   │
@@ -24,7 +24,7 @@ Un piccolo "Flightradar" da scrivania per ESP32: mostra in tempo reale gli aerei
 - **Dettaglio** del volo più vicino: compagnia, rotta (es. `TLV → MXP`), quota, velocità, variometro e una bussola che ti dice **dove guardare e quanto in alto** ("guarda a NE, 38° sull'orizzonte").
 - **Avviso "SOPRA DI TE!"**: quando un aereo entra nel raggio impostato (3 km di default) il display passa da solo al dettaglio e il LED lampeggia di verde.
 - **Movimento fluido**: i dati arrivano ogni 6 s, ma tra un aggiornamento e l'altro la posizione di ogni aereo viene stimata da rotta e velocità (dead reckoning), così le icone si muovono di continuo.
-- **Configurazione dal browser**: portale Wi-Fi al primo avvio, poi raggiungibile su `http://skyradar.local` per cambiare posizione e soglie.
+- **Configurazione dal browser**: portale Wi-Fi al primo avvio, poi raggiungibile su `http://sopra-il-cielo.local` per cambiare posizione e soglie.
 
 ## Hardware
 
@@ -56,12 +56,12 @@ pio device monitor
 ## Primo avvio
 
 1. Il display mostra **"Configura il Wi-Fi"**
-2. Dal telefono, connettiti alla rete **`SkyRadar-Setup`** (di solito si apre da sola una pagina; altrimenti vai su `http://192.168.4.1`)
+2. Dal telefono, connettiti alla rete **`SopraIlCielo-Setup`** (di solito si apre da sola una pagina; altrimenti vai su `http://192.168.4.1`)
 3. Scegli la tua rete Wi-Fi e inserisci la password
 4. **Posizione**: lascia vuoti latitudine e longitudine per usare quella automatica dall'IP, oppure inserisci le tue coordinate (su Google Maps: tasto destro sul punto → clic sulle coordinate per copiarle)
 5. Salva: la scheda si collega, trova la posizione e parte
 
-Per tornare al portale in seguito: apri `http://skyradar.local` (o l'IP mostrato all'avvio), oppure premi BOOT nei primi 2 secondi dopo l'accensione.
+Per tornare al portale in seguito: apri `http://sopra-il-cielo.local` (o l'IP mostrato all'avvio), oppure premi BOOT nei primi 2 secondi dopo l'accensione.
 
 ## Uso
 
@@ -111,7 +111,7 @@ test/host_test.cpp   test sul PC con dati reali
 
 ## Fonti dati: perché non Flightradar24
 
-FR24 non ha un'API gratuita: quella ufficiale è a pagamento, e usare il feed interno del sito ne viola i termini d'uso. SkyRadar usa invece reti aperte di ricevitori ADS-B gestite da volontari, che mostrano gli stessi aerei, compresi molti che FR24 filtra:
+FR24 non ha un'API gratuita: quella ufficiale è a pagamento, e usare il feed interno del sito ne viola i termini d'uso. Sopra il cielo usa invece reti aperte di ricevitori ADS-B gestite da volontari, che mostrano gli stessi aerei, compresi molti che FR24 filtra:
 
 | Servizio | Uso | Condizioni |
 |---|---|---|

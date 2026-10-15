@@ -1,4 +1,4 @@
-// SkyRadar — traffico aereo in tempo reale sopra la tua testa, su ESP32.
+// Sopra il cielo — traffico aereo in tempo reale sopra la tua testa, su ESP32.
 //
 // Core 0: task di rete (tracker.cpp)  -> IP geolocation, adsb.lol, adsbdb
 // Core 1: questo loop                 -> tasto, dead reckoning, disegno a ~25 fps
@@ -77,7 +77,7 @@ void fillPortalFields() {
   p_ovh.setValue(s_ovhBuf, 7);
 }
 
-// Chiamata dal portale quando l'utente salva (sia al primo setup sia da http://skyradar.local)
+// Chiamata dal portale quando l'utente salva (sia al primo setup sia da http://sopra-il-cielo.local)
 void onSaveParams() {
   float lat = NAN, lon = NAN, ovh = 0;
   const bool hasLat = parseCoord(p_lat.getValue(), lat);
@@ -97,8 +97,9 @@ void onSaveParams() {
 }
 
 void onPortalStarted(WiFiManager*) {
-  ui::message("Configura il Wi-Fi", "1) Connettiti alla rete: SkyRadar-Setup",
-              "2) Apri http://192.168.4.1", "3) Scegli la tua rete e salva");
+  char ap[48];
+  snprintf(ap, sizeof(ap), "1) Connettiti alla rete: %s", cfg::kApName);
+  ui::message("Configura il Wi-Fi", ap, "2) Apri http://192.168.4.1", "3) Scegli la tua rete e salva");
 }
 
 void setLed(bool r, bool gr, bool b) {
@@ -228,7 +229,7 @@ void updateLed(bool overhead, bool netOk, uint32_t now) {
 
 void setup() {
   Serial.begin(115200);
-  Serial.println("\n[SkyRadar] avvio");
+  Serial.println("\n[Sopra il cielo] avvio");
 
   pinMode(cfg::kButtonPin, INPUT_PULLUP);
   for (int pin : {cfg::kLedR, cfg::kLedG, cfg::kLedB}) {
@@ -245,7 +246,7 @@ void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.setHostname(cfg::kHostname);
   wm.setHostname(cfg::kHostname);
-  wm.setTitle("SkyRadar");
+  wm.setTitle("Sopra il cielo");
   wm.addParameter(&p_help);
   wm.addParameter(&p_lat);
   wm.addParameter(&p_lon);

@@ -15,7 +15,7 @@ namespace api {
 
 namespace {
 
-constexpr char kUserAgent[] = "SkyRadar/1.0 (ESP32; +https://github.com)";
+constexpr char kUserAgent[] = "SopraIlCielo/1.0 (ESP32; +https://github.com/renero82/sopra-il-cielo)";
 
 struct AdsbSource {
   const char* name;
