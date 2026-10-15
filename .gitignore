@@ -1,0 +1,4 @@
+.pio/
+.vscode/
+host_test
+*.json
